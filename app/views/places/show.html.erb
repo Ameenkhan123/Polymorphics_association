@@ -1,0 +1,37 @@
+	<div class="col-md-10">
+<div class="panel panel-primary">
+            <div class="panel-heading">
+            <h1>details</h1>
+            </div>
+            </div>
+	<div class="well">
+
+		<strong> city:</strong>
+		<%= @place.city %>
+		<br>
+		<br>
+
+		<strong> state:</strong>
+		<%= @place.state %>
+		<br>
+		<br>
+		<strong> zip:</strong>
+		<%= @place.zip %>
+		<br>
+		<br>
+		<strong> address:</strong>
+		<%= @place.address %>
+		<br>
+
+		<br>
+		<strong> image:</strong>
+	<% @place.images.each do |image| %>
+   <%= image_tag image.image, :class => 'img-responsive', :style => 'height:100px'%>
+<% end %>
+		<br>
+
+		<br>
+		<%= link_to 'Back', places_path, :class => 'btn btn-info '  %>
+	</div>
+
+</div>

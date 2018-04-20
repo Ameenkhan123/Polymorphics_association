@@ -1,0 +1,58 @@
+ <div class="panel panel-info">
+    <div class="panel-heading" >
+
+    </div>
+    <div class="panel-body">
+    <div class="well">
+    <%= form_with( model: @place, local: true) do |f| %>
+
+          <% if @place.errors.any? %>
+
+   
+     <div id="error_explanation">
+       <h2>
+         <%= pluralize(@place.errors.count, "error") %> prohibited
+         this place from being saved:
+      </h2>                                       
+      <ul>
+       <% @place.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+       <% end %>
+    </ul>
+ </div>
+   
+
+ <% end %>
+ <table>
+<div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, id: :place_city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state, id: :place_state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip, id: :place_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, id: :place_address %>
+  </div>
+<div class="field">
+    <%= f.fields_for :images do |image|  %>
+      <%= render 'image_fields', f: image %>
+    <% end %>
+    <%= link_to_add_association 'Add Image', f, :images %>
+  </div>      
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</table>
+
+<% end %>
+
+</div>
+</div>

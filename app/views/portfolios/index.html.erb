@@ -1,0 +1,43 @@
+<i>
+<table class="table table-hover">
+    <thead>
+      <ul>
+        <tr>
+          <th>name</th>
+          <th>description:</th>
+                 <th>image:</th>
+          <th>show:</th>
+          <th>edit:</th>
+
+                   <th>delete:</th>
+
+         
+        </tr>
+      </thead>
+
+  <%# byebug %>
+  <% @portfolios.each do |portfolio| %>
+      <tr>
+        <td><%= portfolio.name %></td>
+        <td><%= portfolio.description %></td>
+     
+        <td><% portfolio.images.each do |images| %>
+        <%= image_tag images.image, :class => 'img-responsive', :style => 'height:80px' %>
+<% end %>
+</td>
+
+        <td><%= link_to 'Show', portfolio_path(portfolio), :class => 'btn btn-success ' %></td>
+
+      <td><%= link_to 'Edit', edit_portfolio_path(portfolio), :class => 'btn btn-info ' %></td>
+
+      <td><%= link_to 'Destroy',portfolio_path(portfolio),
+              method: :delete,
+              data: { confirm: 'are you sure'}, :class => 'btn btn-danger ' %>
+   </td>
+      </tr>
+    </ul>
+    <% end %>
+  </thead>
+</table>
+ <td><%= link_to 'New ', new_portfolio_path, :class => 'btn btn-primary '%></td>
+ </i>

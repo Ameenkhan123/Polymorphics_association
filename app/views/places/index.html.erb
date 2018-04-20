@@ -1,0 +1,46 @@
+<i>
+ <table class="table table-hover">
+    <thead>
+      <ul>
+        <tr>
+          <th>city</th>
+          <th>state:</th>
+           <th>zip:</th>
+          <th>address:</th>
+          <th>image:</th>
+          <th>show:</th>
+          <th>edit:</th>
+          <th>delete:</th>
+
+         
+        </tr>
+      </thead>
+
+  <%# byebug %>
+  <% @places.each do |place| %>
+      <tr>
+        <td><%= place.city %></td>
+        <td><%= place.state %></td>
+        <td><%= place.zip %></td>
+        <td><%= place.address%></td>
+              <td><% place.images.each do |images| %>
+        <%= image_tag images.image, :class => 'img-responsive', :style => 'height:80px' %>
+<% end %>
+</td>
+       
+
+        <td><%= link_to 'Show', place_path(place), :class => 'btn btn-success ' %></td>
+
+      <td><%= link_to 'Edit', edit_place_path(place), :class => 'btn btn-info ' %></td>
+
+      <td><%= link_to 'Destroy', place_path(place),
+              method: :delete,
+              data: { confirm: 'are you sure'}, :class => 'btn btn-danger ' %>
+   </td>
+      </tr>
+    </ul>
+    <% end %>
+  </thead>
+</table>
+ <td><%= link_to 'New ', new_place_path, :class => 'btn btn-primary '%></td>
+ </i>

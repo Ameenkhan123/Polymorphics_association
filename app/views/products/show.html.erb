@@ -1,0 +1,31 @@
+	<div class="col-md-10">
+<div class="panel panel-green" style="margin-top: -3%; background-color: #1c2a48;">
+    <div class="panel-heading" >
+<h1 style="color: white; text-align: center;">Show</h1>
+            </div>
+	<div class="well">
+<strong> price:</strong>
+		<%= @product.name %>
+		<br>
+		<br>
+		<strong> name:</strong>
+		<%= @product.name %>
+		<br>
+		<br>
+
+		<strong> description:</strong>
+		<%= @product.description %>
+<br>
+<br>
+		<strong> image:</strong>
+		<!-- fetch image code -->
+	<% @product.images.each do |image| %>
+   <%= image_tag image.image.url, :class => 'img-responsive', :style => 'height:100px'%>
+<% end %>
+
+
+ <br>
+		<%= link_to 'Back', products_path, :class => 'btn btn-info '  %>
+	</div>
+
+</div>

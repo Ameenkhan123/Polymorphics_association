@@ -1,0 +1,29 @@
+	<div class="col-md-10">
+<div class="panel panel-primary">
+            <div class="panel-heading">
+            <h1>details</h1>
+            </div>
+            </div>
+	<div class="well">
+
+		<strong> name:</strong>
+		<%= @portfolio.name %>
+		<br>
+		<br>
+
+		<strong> description:</strong>
+		<%= @portfolio.description %>
+	<br>
+		<br>
+	<strong> image:</strong>
+	<% @portfolio.images.each do |image| %>
+   <%= image_tag image.image, :class => 'img-responsive', :style => 'height:100px'%>
+<% end %>
+
+		<br>
+
+		<br>
+		<%= link_to 'Back', portfolios_path, :class => 'btn btn-info '  %>
+	</div>
+
+</div>
